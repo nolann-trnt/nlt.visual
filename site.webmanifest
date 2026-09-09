@@ -1,0 +1,15 @@
+{
+  "name": "NLT.Visual",
+  "short_name": "NLT.Visual",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090b0a",
+  "theme_color": "#090b0a",
+  "icons": [
+    {
+      "src": "/assets/brand/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
