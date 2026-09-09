@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b0a">
+  <title>{{TITLE}} | NLT.Visual</title>
+  <meta name="description" content="Reportage photo du match {{TITLE}} par NLT.Visual.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" href="../assets/brand/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/match-page.css">
+</head>
+<body class="match-page">
+
+  <div data-match-header></div>
+
+  <main>
+    <section class="match-hero">
+      <img class="match-hero__background" src="../assets/images/match-page/{{SLUG}}/cover.webp" alt="{{TITLE}}">
+      <div class="match-hero__shade"></div>
+
+      <div class="match-hero__content">
+        <a class="match-back" href="../index.html#realisations">← Retour aux réalisations</a>
+
+        <div class="match-hero__bottom">
+          <div>
+            <p class="match-kicker">REPORTAGE / {{COMPETITION}}</p>
+            <h1>{{TEAM1}}<br><span>- {{TEAM2}}</span></h1>
+          </div>
+          <p class="match-hero__scroll">Faire défiler<br>pour voir la série ↓</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="match-info" style="--info-count:{{INFO_COUNT}}">
+      <div><span>Compétition</span><strong>{{COMPETITION}}</strong></div>
+{{CLIENT_BLOCK}}      <div><span>Date</span><strong>{{DATE}}</strong></div>
+      <div><span>Lieu</span><strong>{{LIEU}}</strong></div>
+    </section>
+
+    <section class="match-carousel-section">
+      <div class="match-carousel-head">
+        <div>
+          <p class="match-section-index">SÉRIE / {{PHOTO_COUNT_2}} IMAGES</p>
+          <h2>Le match<br>en images.</h2>
+        </div>
+        <div class="match-carousel-controls" aria-label="Navigation dans la série">
+          <button class="match-carousel-prev" type="button" aria-label="Photos précédentes">←</button>
+          <button class="match-carousel-next" type="button" aria-label="Photos suivantes">→</button>
+        </div>
+      </div>
+
+      <div class="match-carousel" data-match-carousel>
+{{GALLERY}}
+      </div>
+
+      <div class="match-carousel-note">Glisser pour parcourir la série · Cliquer pour agrandir</div>
+    </section>
+
+    <section class="match-end">
+      <div>
+        <p>Un projet à couvrir ?</p>
+        <h2>On se retrouve<br>au bord du terrain.</h2>
+      </div>
+      <a href="../index.html#contact">Parlons de votre projet ↗</a>
+    </section>
+  </main>
+
+  <div data-match-footer></div>
+
+  <script src="../assets/js/match-page-shared.js" defer></script>
+</body>
+</html>

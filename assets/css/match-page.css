@@ -149,7 +149,7 @@ margin-bottom: clamp(40px, 7vh, 80px);  text-decoration: none;
 /* INFOS */
 .match-info {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--info-count, 4), 1fr);
   border-top: 1px solid var(--match-line);
   border-bottom: 1px solid var(--match-line);
 }
@@ -408,7 +408,7 @@ margin-bottom: clamp(40px, 7vh, 80px);  text-decoration: none;
 
   .match-carousel-section { padding: 70px 0 90px; }
   .match-carousel-head { padding: 0 20px 22px; }
-  .match-carousel-controls { display: none; }
+  .match-carousel-controls { display: flex; }
   .match-carousel { gap: 8px; padding: 0 20px; }
   .match-photo { flex-basis: 78vw; max-width: 360px; }
   .match-carousel-note { padding: 12px 20px 0; }

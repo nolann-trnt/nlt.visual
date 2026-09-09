@@ -590,7 +590,8 @@ button,input,select,textarea {
 
 .about-media {
   aspect-ratio:4/5;
-  overflow:hidden
+  overflow:hidden;
+  border-radius: 16px;
 }
 
 .about-media img {
@@ -884,7 +885,7 @@ button,input,select,textarea {
     flex-basis:78vw
   }
   .rail-controls {
-    display:none
+    display:flex
   }
   .portfolio-tabs {
     width:calc(100% + 36px);

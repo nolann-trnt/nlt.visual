@@ -2,22 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nltvisual.fr/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nltvisual.fr/projets/sous-les-projecteurs.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://nltvisual.fr/match-page/rc-calais-kv-courtrai.html</loc>
   </url>
   <url>
-    <loc>https://nltvisual.fr/projets/dernier-rempart.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://nltvisual.fr/match-page/usl-dunkerque-2-omf.html</loc>
   </url>
   <url>
-    <loc>https://nltvisual.fr/projets/avant-le-coup-envoi.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://nltvisual.fr/match-page/us-pays-de-cassel-sfc-neuilly-sur-marne.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/as-steenvoorde-omf.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/usl-dunkerque-ja-drancy.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/omf-longueau-esc.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/ferran-fan-96-3-as-marcq.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/omf-stade-bethunois.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/us-quiestede-fc-wavrans.html</loc>
+  </url>
+  <url>
+    <loc>https://nltvisual.fr/match-page/omf-us-vimy.html</loc>
   </url>
 </urlset>

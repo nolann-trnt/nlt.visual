@@ -16,21 +16,7 @@
   <link rel="stylesheet" href="../assets/css/match-page.css">
 </head>
 <body class="match-page">
-
-  <header class="match-header">
-    <a class="match-logo" href="../index.html" aria-label="Retour à l'accueil NLT.Visual">
-      <img src="../assets/brand/nlt-visual-logo-light.png" alt="NLT.Visual">
-    </a>
-
-    <nav class="match-nav" aria-label="Navigation principale">
-      <a href="../index.html#realisations">Réalisations</a>
-      <a href="../index.html#portfolio">Portfolio</a>
-      <a href="../index.html#prestations">Prestations</a>
-      <a href="../index.html#apropos">À propos</a>
-    </nav>
-
-    <a class="match-contact" href="../index.html#contact">Me contacter ↗</a>
-  </header>
+  <div data-match-header></div>
 
   <main>
     <section class="match-hero">
@@ -50,7 +36,7 @@
             <p class="match-kicker">REPORTAGE / CHAMPIONNAT U17 NAT</p>
             <h1>USL Dunkerque<br><span>— JA Drancy</span></h1>
           </div>
-          <p class="match-hero__scroll">20 images<br>↓</p>
+          <p class="match-hero__scroll">10 images<br>↓</p>
         </div>
       </div>
     </section>
@@ -58,13 +44,13 @@
     <section class="match-info" aria-label="Informations du match">
       <div><span>Compétition</span><strong>Championnat U17 NAT</strong></div>
       <div><span>Lieu</span><strong>Stade Marcel Tribut</strong></div>
-      <div><span>Sélection</span><strong>20 images</strong></div>
+      <div><span>Sélection</span><strong>10 images</strong></div>
     </section>
 
     <section class="match-carousel-section" aria-labelledby="gallery-title">
       <div class="match-carousel-head">
         <div>
-          <p class="match-section-index">SÉRIE / 20 IMAGES</p>
+          <p class="match-section-index">SÉRIE / 10 IMAGES</p>
           <h2 id="gallery-title">Le match en images.</h2>
         </div>
         <div class="match-carousel-controls" aria-label="Navigation de la galerie">
@@ -84,17 +70,7 @@
         <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/08.webp" alt="USL Dunkerque — JA Drancy — photo 8" loading="lazy"></button>
         <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/09.webp" alt="USL Dunkerque — JA Drancy — photo 9" loading="lazy"></button>
         <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/10.webp" alt="USL Dunkerque — JA Drancy — photo 10" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/11.webp" alt="USL Dunkerque — JA Drancy — photo 11" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/12.webp" alt="USL Dunkerque — JA Drancy — photo 12" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/13.webp" alt="USL Dunkerque — JA Drancy — photo 13" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/14.webp" alt="USL Dunkerque — JA Drancy — photo 14" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/15.webp" alt="USL Dunkerque — JA Drancy — photo 15" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/16.webp" alt="USL Dunkerque — JA Drancy — photo 16" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/17.webp" alt="USL Dunkerque — JA Drancy — photo 17" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/18.webp" alt="USL Dunkerque — JA Drancy — photo 18" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/19.webp" alt="USL Dunkerque — JA Drancy — photo 19" loading="lazy"></button>
-        <button class="match-photo" type="button"><img src="../assets/images/match-page/usl-dunkerque-ja-drancy/20.webp" alt="USL Dunkerque — JA Drancy — photo 20" loading="lazy"></button>
-      </div>
+       </div>
 
       <div class="match-carousel-note">Glisser pour parcourir la série · Cliquer pour agrandir</div>
     </section>
@@ -107,74 +83,7 @@
       <a href="../index.html#contact">Parlons de votre projet ↗</a>
     </section>
   </main>
-
-  <footer class="match-footer">
-    <span>NLT.Visual</span>
-    <span>Photographe sportif · Hauts-de-France</span>
-    <a href="https://www.instagram.com/nlt.visual/" target="_blank" rel="noreferrer">@nlt.visual ↗</a>
-  </footer>
-
-  <dialog class="photo-lightbox" aria-label="Photo agrandie">
-    <button class="lightbox-close" type="button" aria-label="Fermer">×</button>
-    <button class="lightbox-prev" type="button" aria-label="Photo précédente">←</button>
-    <figure>
-      <img src="" alt="">
-      <figcaption><span>USL Dunkerque - JA Drancy</span><span class="lightbox-counter"></span></figcaption>
-    </figure>
-    <button class="lightbox-next" type="button" aria-label="Photo suivante">→</button>
-  </dialog>
-
-  <script>
-    const carousel = document.querySelector('[data-match-carousel]');
-    const previousButton = document.querySelector('.match-carousel-prev');
-    const nextButton = document.querySelector('.match-carousel-next');
-    const photos = [...document.querySelectorAll('.match-photo img')];
-    const dialog = document.querySelector('.photo-lightbox');
-    const dialogImg = dialog.querySelector('img');
-    const counter = dialog.querySelector('.lightbox-counter');
-    let current = 0;
-
-    function getScrollAmount() {
-      const card = carousel.querySelector('.match-photo');
-      return card ? card.getBoundingClientRect().width * 2.15 : carousel.clientWidth * 0.75;
-    }
-
-    previousButton.addEventListener('click', () => {
-      carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-    });
-
-    nextButton.addEventListener('click', () => {
-      carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-    });
-
-    function showPhoto(index) {
-      current = (index + photos.length) % photos.length;
-      dialogImg.src = photos[current].src;
-      dialogImg.alt = photos[current].alt;
-      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
-    }
-
-    photos.forEach((img, index) => {
-      img.closest('button').addEventListener('click', () => {
-        showPhoto(index);
-        dialog.showModal();
-      });
-    });
-
-    dialog.querySelector('.lightbox-close').addEventListener('click', () => dialog.close());
-    dialog.querySelector('.lightbox-prev').addEventListener('click', () => showPhoto(current - 1));
-    dialog.querySelector('.lightbox-next').addEventListener('click', () => showPhoto(current + 1));
-
-    dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (!dialog.open) return;
-      if (event.key === 'ArrowLeft') showPhoto(current - 1);
-      if (event.key === 'ArrowRight') showPhoto(current + 1);
-      if (event.key === 'Escape') dialog.close();
-    });
-  </script>
+  <div data-match-footer></div>
+  <script src="../assets/js/match-page-shared.js" defer></script>
 </body>
 </html>
