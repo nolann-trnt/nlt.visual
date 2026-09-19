@@ -23,6 +23,12 @@ body.match-page {
 body.match-page a { color: inherit; }
 body.match-page img { max-width: 100%; }
 
+body.match-page a:focus-visible,
+body.match-page button:focus-visible {
+  outline: 2px solid var(--match-accent);
+  outline-offset: 3px;
+}
+
 .match-header {
   position: fixed;
   top: 0;

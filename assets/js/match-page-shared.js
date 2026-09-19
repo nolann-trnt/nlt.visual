@@ -5,7 +5,7 @@
       headerMount.outerHTML = `
         <header class="match-header">
           <a class="match-logo" href="../index.html" aria-label="Retour à l'accueil NLT.Visual">
-            <img src="../assets/brand/nlt-visual-logo-light.png" alt="NLT.Visual">
+            <img src="../assets/brand/nlt-visual-logo-light.png" alt="NLT.Visual" width="166" height="118">
           </a>
           <nav class="match-nav" aria-label="Navigation principale">
             <a href="../index.html#realisations">Réalisations</a>
@@ -39,7 +39,7 @@
         <button class="lightbox-close" type="button" aria-label="Fermer">×</button>
         <button class="lightbox-prev" type="button" aria-label="Photo précédente">←</button>
         <figure>
-          <img src="" alt="">
+          <img alt="">
           <figcaption><span>${title}</span><span class="lightbox-counter"></span></figcaption>
         </figure>
         <button class="lightbox-next" type="button" aria-label="Photo suivante">→</button>
@@ -58,6 +58,7 @@
     const dialogImg = dialog.querySelector('img');
     const counter = dialog.querySelector('.lightbox-counter');
     let current = 0;
+    const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
     function getScrollAmount() {
       const card = carousel.querySelector('.match-photo');
@@ -65,11 +66,11 @@
     }
 
     previousButton?.addEventListener('click', () => {
-      carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      carousel.scrollBy({ left: -getScrollAmount(), behavior });
     });
 
     nextButton?.addEventListener('click', () => {
-      carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      carousel.scrollBy({ left: getScrollAmount(), behavior });
     });
 
     function showPhoto(index) {
@@ -77,6 +78,11 @@
       dialogImg.src = photos[current].src;
       dialogImg.alt = photos[current].alt;
       counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
+    }
+
+    function closeDialog() {
+      dialog.close();
+      dialogImg.removeAttribute('src');
     }
 
     photos.forEach((img, index) => {
@@ -89,7 +95,7 @@
     dialog.querySelector('.lightbox-close')?.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
-      dialog.close();
+      closeDialog();
     });
 
     dialog.querySelector('.lightbox-prev')?.addEventListener('click', (event) => {
@@ -105,15 +111,17 @@
     });
 
     dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
+      if (event.target === dialog) closeDialog();
     });
 
     document.addEventListener('keydown', (event) => {
       if (!dialog.open) return;
       if (event.key === 'ArrowLeft') showPhoto(current - 1);
       if (event.key === 'ArrowRight') showPhoto(current + 1);
-      if (event.key === 'Escape') dialog.close();
+      if (event.key === 'Escape') closeDialog();
     });
+
+    dialog.addEventListener('close', () => dialogImg.removeAttribute('src'));
   }
 
   function init() {

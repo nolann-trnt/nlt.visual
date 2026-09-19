@@ -10,21 +10,27 @@
   <link rel="canonical" href="https://nltvisual.fr/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="NLT.Visual">
   <meta property="og:title" content="NLT.Visual - Photographe sportif">
   <meta property="og:description" content="Football, joueurs et clubs. Hauts-de-France.">
+  <meta property="og:url" content="https://nltvisual.fr/">
   <meta property="og:image" content="https://nltvisual.fr/assets/images/hero/hero-main.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NLT.Visual - Photographe sportif">
+  <meta name="twitter:description" content="Football, joueurs et clubs. Hauts-de-France.">
+  <meta name="twitter:image" content="https://nltvisual.fr/assets/images/hero/hero-main.webp">
   <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/images/hero/hero-main.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero/hero-main-1280.webp" imagesrcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main.webp 3712w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/home-v2.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"NLT.Visual","description":"Photographe sportif spécialisé football, joueurs et clubs dans les Hauts-de-France.","url":"https://nltvisual.fr/","areaServed":["Hauts-de-France","Nord","Pas-de-Calais","Lille","Lens"],"sameAs":["https://www.instagram.com/nlt.visual/"]}
   </script>
 </head>
-<body data-demo="true">
+<body>
   <a class="skip-link" href="#main">Aller au contenu</a>
 
   <header class="header" data-header>
@@ -40,7 +46,7 @@
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu"><span></span><span></span></button>
   </header>
 
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" inert>
     <nav>
       <a href="#realisations">Réalisations</a>
       <a href="#prestations">Prestations</a>
@@ -52,7 +58,7 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <img class="hero-bg" src="assets/images/hero/hero-main.webp" alt="" fetchpriority="high">
+      <img class="hero-bg" src="assets/images/hero/hero-main-1280.webp" srcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main.webp 3712w" sizes="100vw" width="3712" height="5568" alt="" fetchpriority="high" decoding="async">
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="eyebrow">Photographe sportif - Hauts-de-France</p>
@@ -314,7 +320,7 @@
 </section>
 
     <section class="about section section-dark" id="apropos">
-      <div class="about-media"><img src="assets/images/about/nolann-about.webp" alt="Nolann, photographe NLT.Visual" loading="lazy"></div>
+      <div class="about-media"><img src="assets/images/about/nolann-about-900.webp" srcset="assets/images/about/nolann-about-900.webp 900w, assets/images/about/nolann-about.webp 1650w" sizes="(max-width: 900px) calc(100vw - 36px), 42vw" width="1650" height="2200" alt="Nolann, photographe NLT.Visual" loading="lazy" decoding="async"></div>
       <div class="about-copy">
         <p class="section-kicker">À propos</p>
         <h2>Nolann.<br>Derrière NLT.Visual.</h2>
@@ -340,6 +346,7 @@
         <label>Type de projet<select name="project-type" required><option value="" selected disabled>Choisir</option><option>Couverture de match</option><option>Shooting joueur</option><option>Shooting gardien</option><option>Contenu club</option><option>Media day</option><option>Contenu marque</option><option>Autre</option></select></label>
         <label class="full">Message<textarea name="message" rows="5" required placeholder="Date, lieu, besoin, usage des images…"></textarea></label>
         <button class="btn btn-accent full" type="submit">Parlons du projet ↗</button>
+        <p class="form-privacy full">Les informations envoyées servent uniquement à répondre à votre demande. Vous pouvez demander leur suppression à tout moment par email.</p>
       </form>
     </section>
   </main>
@@ -353,32 +360,6 @@
 
   <a class="mobile-contact" href="#contact">Contact ↗</a>
 
-  <dialog class="lightbox" data-lightbox>
-    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Fermer">×</button>
-    <button class="lightbox-prev" type="button" data-lightbox-prev aria-label="Précédente">←</button>
-    <figure><img data-lightbox-image src="" alt=""><figcaption><span data-lightbox-caption></span><b data-lightbox-position></b></figcaption></figure>
-    <button class="lightbox-next" type="button" data-lightbox-next aria-label="Suivante">→</button>
-  </dialog>
-
-  <script src="assets/js/content-v2.js" defer></script>
   <script src="assets/js/home-v2.js" defer></script>
-  <script>
-  const serviceItems = document.querySelectorAll('.service-item');
-
-  const serviceObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    },
-    {
-      threshold: 0.28
-    }
-  );
-
-  serviceItems.forEach(item => serviceObserver.observe(item));
-</script>
 </body>
 </html>
