@@ -54,6 +54,86 @@
   };
   bindRail($('[data-project-rail]'), $('[data-rail-prev]'), $('[data-rail-next]'), .75);
 
+  const showcase = $('[data-showcase]');
+  const showcaseTrack = $('[data-showcase-track]');
+  if (showcase && showcaseTrack) {
+    const originals = [...showcaseTrack.children];
+    originals.forEach(li => {
+      const clone = li.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.firstElementChild.alt = '';
+      showcaseTrack.appendChild(clone);
+    });
+
+    const baseSpeed = reduce ? 0 : -45;
+    let x = 0, velocity = baseSpeed, loopWidth = 0;
+    let dragging = false, visible = true, lastTime = 0;
+    let lastX = 0, lastMove = 0, dragVelocity = 0;
+
+    const measure = () => {
+      loopWidth = showcaseTrack.scrollWidth / 2;
+    };
+    const wrap = () => {
+      if (!loopWidth) return;
+      x = ((x % loopWidth) - loopWidth) % loopWidth;
+    };
+    const render = () => {
+      showcaseTrack.style.transform = `translate3d(${x}px,0,0)`;
+    };
+
+    const tick = now => {
+      const dt = Math.min((now - lastTime) / 1000, .05);
+      lastTime = now;
+      if (visible && !dragging) {
+        x += velocity * dt;
+        velocity += (baseSpeed - velocity) * Math.min(dt * 2.2, 1);
+        wrap();
+        render();
+      }
+      requestAnimationFrame(tick);
+    };
+
+    showcase.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true;
+      lastX = e.clientX;
+      lastMove = performance.now();
+      dragVelocity = 0;
+      showcase.classList.add('is-dragging');
+      showcase.setPointerCapture(e.pointerId);
+    });
+    showcase.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const now = performance.now();
+      const dx = e.clientX - lastX;
+      const dt = Math.max((now - lastMove) / 1000, .001);
+      dragVelocity = dragVelocity * .6 + (dx / dt) * .4;
+      lastX = e.clientX;
+      lastMove = now;
+      x += dx;
+      wrap();
+      render();
+    });
+    const endDrag = e => {
+      if (!dragging) return;
+      dragging = false;
+      showcase.classList.remove('is-dragging');
+      if (showcase.hasPointerCapture(e.pointerId)) showcase.releasePointerCapture(e.pointerId);
+      const idle = performance.now() - lastMove > 90;
+      velocity = idle ? baseSpeed : Math.max(-3500, Math.min(3500, dragVelocity));
+    };
+    showcase.addEventListener('pointerup', endDrag);
+    showcase.addEventListener('pointercancel', endDrag);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(showcase);
+    }
+    addEventListener('resize', measure, {passive:true});
+    addEventListener('load', measure);
+    measure();
+    requestAnimationFrame(now => { lastTime = now; tick(now); });
+  }
+
   const serviceItems = $$('.service-item');
   if (reduce || !('IntersectionObserver' in window)) {
     serviceItems.forEach(item => item.classList.add('is-visible'));
