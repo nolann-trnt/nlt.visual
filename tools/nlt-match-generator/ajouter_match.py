@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import json
 import re
 import shutil
 import unicodedata
@@ -88,9 +89,12 @@ def backup_files(site: Path, files: list[Path]) -> Path:
     return backup
 
 
-def extract_base_url(index_text: str) -> str:
-    m = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', index_text, re.I)
-    return m.group(1).rstrip('/') if m else 'https://nltvisual.fr'
+def base_url_from_site(site_json: Path) -> str:
+    try:
+        url = json.loads(site_json.read_text(encoding='utf-8')).get('url', '')
+    except (OSError, ValueError):
+        url = ''
+    return url.rstrip('/') or 'https://nltvisual.fr'
 
 
 def rebuild_sitemap(site: Path, base_url: str):
@@ -110,15 +114,13 @@ def rebuild_sitemap(site: Path, base_url: str):
     sitemap.write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
-def add_home_card(index_path: Path, card_html: str):
-    text = index_path.read_text(encoding='utf-8')
-    marker = '<div class="project-rail" data-project-rail>'
-    pos = text.find(marker)
-    if pos == -1:
-        raise RuntimeError('Impossible de trouver la section Réalisations dans index.html.')
-    insert_at = pos + len(marker)
-    text = text[:insert_at] + '\n\n' + card_html + '\n' + text[insert_at:]
-    index_path.write_text(text, encoding='utf-8')
+def add_card(realisations_json: Path, card: dict):
+    """Ajoute la carte en première position dans content/realisations.json."""
+    data = json.loads(realisations_json.read_text(encoding='utf-8'))
+    if any(item.get('slug') == card['slug'] for item in data['items']):
+        raise RuntimeError(f"La carte '{card['slug']}' existe déjà dans realisations.json.")
+    data['items'].insert(0, card)
+    realisations_json.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
 def build_info_blocks(project_type: str, third_label: str, data: dict) -> tuple[str, int]:
@@ -278,7 +280,8 @@ class App:
     def create(self):
         try:
             site = Path(self.site.get()).resolve()
-            index = site / 'index.html'
+            realisations_json = site / 'content' / 'realisations.json'
+            site_json = site / 'content' / 'site.json'
             page_dir = site / 'match-page'
             shared_js = site / 'assets' / 'js' / 'match-page-shared.js'
             match_css = site / 'assets' / 'css' / 'match-page.css'
@@ -286,7 +289,7 @@ class App:
             images_root = site / 'assets' / 'images' / 'match-page'
             sitemap = site / 'sitemap.xml'
 
-            for required in [index, page_dir, shared_js, match_css, thumbs_dir, images_root]:
+            for required in [realisations_json, site_json, page_dir, shared_js, match_css, thumbs_dir, images_root]:
                 if not required.exists():
                     raise RuntimeError(f'Élément introuvable : {required}')
 
@@ -324,7 +327,7 @@ class App:
             if page.exists() or photo_folder.exists():
                 raise RuntimeError(f"La réalisation '{slug}' existe déjà. Rien n'a été écrasé.")
 
-            backup = backup_files(site, [index, sitemap, match_css])
+            backup = backup_files(site, [realisations_json, sitemap, match_css])
             photo_folder.mkdir(parents=True)
             convert_webp(cover, photo_folder / 'cover.webp', 2400, 86)
             convert_webp(thumb, thumb_target, 1400, 84)
@@ -341,35 +344,31 @@ class App:
                 'client': self.client.get().strip(),
                 'slug': slug,
                 'title': f'{field1} - {field2}',
-                'base_url': extract_base_url(index.read_text(encoding='utf-8')),
+                'base_url': base_url_from_site(site_json),
             }
 
             template = Path(__file__).parent / 'templates' / 'match-template.html'
             page.write_text(build_project_page(template, data, len(gallery)), encoding='utf-8')
 
             cfg = PROJECT_TYPES[project_type]
-            top_label = f"Client · {esc(data['client'])}" if data['client'] else esc(project_type)
-            context_label = esc(field3) if field3 else esc(project_type)
-            client_attr = f' data-client="{slugify(data["client"])}"' if data['client'] else ''
+            card = {
+                'slug': slug,
+                'thumb': f'assets/images/thumbs/matchday/{slug}.webp',
+                'alt': data['title'],
+                'label': f"Client · {data['client']}" if data['client'] else project_type,
+                'title': f'{field1}\n- {field2}',
+                'meta': f'{field3 or project_type} · {cfg["cta"]}',
+                'category': cfg['category'],
+            }
+            if data['client']:
+                card['client'] = slugify(data['client'])
 
-            card = (
-                f'      <a class="project-card" href="match-page/{slug}.html" data-category="{cfg["category"]}"{client_attr}>\n'
-                f'        <img src="assets/images/thumbs/matchday/{slug}.webp" alt="{esc(data["title"])}" loading="lazy">\n'
-                f'        <div>\n'
-                f'          <p>{top_label}</p>\n'
-                f'          <h3>{esc(field1)}<br>- {esc(field2)}</h3>\n'
-                f'          <span>{context_label} · {cfg["cta"]}</span>\n'
-                f'        </div>\n'
-                f'      </a>'
-            )
-
-            add_home_card(index, card)
-            base_url = extract_base_url(index.read_text(encoding='utf-8'))
-            rebuild_sitemap(site, base_url)
+            add_card(realisations_json, card)
+            rebuild_sitemap(site, data['base_url'])
 
             messagebox.showinfo(
                 'NLT.Visual',
-                f'Réalisation créée.\n\nType : {project_type}\nPage : match-page/{slug}.html\nGalerie : {len(gallery)} photos\nSauvegarde : {backup.relative_to(site)}',
+                f'Réalisation créée.\n\nType : {project_type}\nPage : match-page/{slug}.html\nGalerie : {len(gallery)} photos\nSauvegarde : {backup.relative_to(site)}\n\nPour voir le résultat : double-clique sur previsualiser.bat.',
             )
         except Exception as exc:
             messagebox.showerror('Erreur', str(exc))

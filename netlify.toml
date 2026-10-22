@@ -1,5 +1,9 @@
 [build]
-  publish = "."
+  command = "pip install -r requirements-build.txt && python build.py"
+  publish = "_site"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
 
 [[headers]]
   for = "/*"
