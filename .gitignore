@@ -1,0 +1,15 @@
+# Sauvegardes locales : Git est déjà la sauvegarde
+_backups/
+
+# Réglages personnels de Claude
+.claude/settings.local.json
+
+# Originaux et sources : à garder hors du dépôt
+originaux/
+*-original.*
+*.psd
+
+# Fichiers temporaires
+__pycache__/
+Thumbs.db
+desktop.ini
