@@ -1,0 +1,38 @@
+{
+  "kicker": "Prestations",
+  "title": "Ce que je peux\nproduire.",
+  "note": "Du contenu adapté à chaque besoin, sur le terrain comme en dehors.",
+  "button": "Parler de votre projet ↗",
+  "items": [
+    {
+      "title": "Couverture de match",
+      "text": "Avant-match, action, réactions, détails et sélection éditée prête à publier.",
+      "audience": "Clubs · joueurs · médias"
+    },
+    {
+      "title": "Shooting joueur",
+      "text": "Portraits dirigés, images d’action et contenu personnel autour de l’identité du joueur.",
+      "audience": "Joueurs · agents · académies"
+    },
+    {
+      "title": "Shooting gardien",
+      "text": "Un traitement spécifique du poste : appuis, geste, équipement, portrait et explosivité.",
+      "audience": "Gardiens · coachs · marques"
+    },
+    {
+      "title": "Contenu club",
+      "text": "Matchday, entraînement, coulisses, staff et banque d’images pour nourrir la communication.",
+      "audience": "Clubs amateurs · semi-pro · professionnels"
+    },
+    {
+      "title": "Media day",
+      "text": "Une série cohérente de portraits pour affiches, fiches joueurs, partenaires et réseaux.",
+      "audience": "Clubs · structures"
+    },
+    {
+      "title": "Contenu marque",
+      "text": "Photographie produit ou athlète dans un langage crédible et directement lié au football.",
+      "audience": "Équipementiers · marques"
+    }
+  ]
+}

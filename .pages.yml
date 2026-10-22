@@ -1,0 +1,172 @@
+# Configuration de l'interface d'administration (Pages CMS : https://app.pagescms.org)
+# Chaque entrée correspond à un fichier du dossier content/. Le site est reconstruit
+# automatiquement par Netlify après chaque enregistrement.
+
+media:
+  - name: images
+    label: Images du site
+    input: assets/images
+    output: /assets/images
+    extensions: [webp, jpg, jpeg, png]
+    rename: safe
+
+content:
+  - name: accueil
+    label: Page d'accueil
+    type: file
+    path: content/accueil.json
+    fields:
+      - name: hero
+        label: Haut de page
+        type: object
+        fields:
+          - { name: eyebrow, label: Petite ligne au-dessus du titre, type: string }
+          - { name: title, label: Grand titre (Entrée = retour à la ligne), type: text }
+          - { name: tagline, label: Phrase d'accroche, type: string }
+          - { name: subtitle, label: Sous-titre, type: text }
+          - { name: button_work, label: Bouton 1, type: string }
+          - { name: button_project, label: Bouton 2, type: string }
+          - { name: meta_left, label: Mention en haut à droite (gauche), type: string }
+          - { name: meta_right, label: Mention en haut à droite (droite), type: string }
+      - name: intro
+        label: Introduction
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - { name: carousel_title, label: Titre au-dessus du carrousel (important pour Google), type: string }
+      - name: realisations
+        label: Section Réalisations
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
+      - name: about
+        label: À propos
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
+          - { name: image, label: Photo (grande), type: image, options: { media: images } }
+          - { name: image_small, label: Photo (version mobile), type: image, options: { media: images } }
+          - { name: image_alt, label: Description de la photo, type: string }
+          - { name: paragraphs, label: Paragraphes, type: text, list: true }
+          - name: facts
+            label: Infos (Basé, Focus...)
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Intitulé, type: string }
+              - { name: value, label: Valeur, type: string }
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
+          - { name: text, label: Texte, type: text }
+          - { name: project_types, label: Choix de "Type de projet" du formulaire, type: string, list: true }
+          - { name: message_placeholder, label: Texte d'exemple du champ Message, type: string }
+          - { name: submit, label: Texte du bouton d'envoi, type: string }
+          - { name: privacy, label: Mention de confidentialité, type: text }
+      - name: faq
+        label: Titre de la FAQ
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+
+  - name: faq
+    label: FAQ (questions et réponses)
+    type: file
+    path: content/faq.json
+    fields:
+      - name: items
+        label: Questions
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{question}"
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Réponse, type: text }
+
+  - name: prestations
+    label: Prestations
+    type: file
+    path: content/prestations.json
+    fields:
+      - { name: kicker, label: Petit titre, type: string }
+      - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
+      - { name: note, label: Texte d'introduction, type: text }
+      - { name: button, label: Texte du bouton, type: string }
+      - name: items
+        label: Prestations
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Nom, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: audience, label: Pour qui, type: string }
+
+  - name: carrousel
+    label: Carrousel de photos (accueil)
+    type: file
+    path: content/carrousel.json
+    fields:
+      - name: items
+        label: Photos (dans l'ordre d'affichage)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - { name: image, label: Photo, type: image, options: { media: images } }
+          - { name: alt, label: Description de la photo (utile pour Google), type: string }
+
+  - name: realisations
+    label: Cartes Réalisations (accueil)
+    type: file
+    path: content/realisations.json
+    fields:
+      - name: items
+        label: Réalisations (la première s'affiche en premier)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - { name: slug, label: Nom de la page (ne pas modifier), type: string }
+          - { name: thumb, label: Miniature, type: image, options: { media: images } }
+          - { name: alt, label: Nom complet, type: string }
+          - { name: label, label: Ligne du haut (ex. Client · OMF), type: string }
+          - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
+          - { name: meta, label: Ligne du bas, type: string }
+          - { name: category, label: Catégorie, type: string }
+          - { name: competition, label: Compétition (facultatif), type: string }
+          - { name: client, label: Client (facultatif), type: string }
+
+  - name: site
+    label: Réglages du site (Google, contact)
+    type: file
+    path: content/site.json
+    fields:
+      - { name: title, label: Titre dans Google et l'onglet du navigateur, type: string }
+      - { name: description, label: Description dans Google, type: text }
+      - { name: share_title, label: Titre quand on partage le lien, type: string }
+      - { name: share_description, label: Description quand on partage le lien, type: text }
+      - { name: share_image, label: Image quand on partage le lien, type: image, options: { media: images } }
+      - { name: schema_description, label: Description technique pour Google, type: text }
+      - { name: area_served, label: Zones d'intervention, type: string, list: true }
+      - { name: instagram_url, label: Lien Instagram, type: string }
+      - { name: instagram_handle, label: Nom Instagram affiché, type: string }
+      - { name: email, label: Email de contact, type: string }
+      - { name: footer_text, label: Texte du pied de page, type: string }
+      - { name: url, label: Adresse du site (ne pas modifier), type: string }

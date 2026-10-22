@@ -1,0 +1,36 @@
+# NLT.Visual
+
+> NLT.Visual est le site de Nolann, photographe de football et de sport basé dans les Hauts-de-France. Il couvre des matchs, réalise des shootings de joueurs et de gardiens, produit du contenu pour des clubs, et travaille des projets street, running et marques ou créateurs. Zone d'intervention : Nord, Pas-de-Calais et Hauts-de-France.
+
+## Prestations
+{% for item in prestations['items'] %}
+- {{ item.title }} : {{ item.text }}
+{%- endfor %}
+- Tarifs sur devis, selon le projet, sa durée et l'usage des photos
+
+## Contact
+
+- Site : {{ site.url }}/
+- Email : {{ site.email }}
+- Instagram : {{ site.instagram_url }}
+- Formulaire de contact : {{ site.url }}/#contact
+
+## Pages principales
+
+- [Accueil et portfolio]({{ site.url }}/): présentation, sélection de photos et réalisations
+- [Questions fréquentes]({{ site.url }}/#faq): prestations, zone, réservation, tarifs, livraison, droits d'usage
+
+## Réalisations (reportages)
+{% for card in realisations %}
+- [{{ card.title.replace('\n', ' ') }}]({{ site.url }}/match-page/{{ card.slug }}.html): {{ card.meta.split(' · ')[0] }}
+{%- endfor %}
+
+## Questions fréquentes
+{% for entry in faq %}
+### {{ entry.question }}
+
+{{ entry.answer }}
+{% endfor %}
+## Droits
+
+Toutes les photographies sont la propriété de NLT.Visual. Toute reproduction ou utilisation sans accord écrit est interdite.

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080a09">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="{{ site.url }}/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="NLT.Visual">
+  <meta property="og:title" content="{{ site.share_title }}">
+  <meta property="og:description" content="{{ site.share_description }}">
+  <meta property="og:url" content="{{ site.url }}/">
+  <meta property="og:image" content="{{ site.url }}/{{ site.share_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ site.share_title }}">
+  <meta name="twitter:description" content="{{ site.share_description }}">
+  <meta name="twitter:image" content="{{ site.url }}/{{ site.share_image }}">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/images/hero/hero-main-1280.webp" imagesrcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main.webp 3712w" imagesizes="100vw" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/home-v2.css">
+  <script type="application/ld+json">
+  {{ business_schema|tojson }}
+  </script>
+  <script type="application/ld+json">
+  {{ faq_schema|tojson }}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="header" data-header>
+    <a class="brand" href="#top" aria-label="NLT.Visual - accueil">
+      <img src="assets/brand/nlt-visual-logo-light.png" alt="NLT.Visual" width="166" height="118">
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#realisations">Réalisations</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+    <a class="header-cta" href="#contact">Contact <span>↗</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" inert>
+    <nav>
+      <a href="#realisations">Réalisations</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="{{ site.instagram_url }}" target="_blank" rel="noreferrer">{{ site.instagram_handle }} ↗</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <img class="hero-bg" src="assets/images/hero/hero-main-1280.webp" srcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main.webp 3712w" sizes="100vw" width="3712" height="5568" alt="" fetchpriority="high" decoding="async">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">{{ accueil.hero.eyebrow }}</p>
+        <h1>{{ accueil.hero.title|nl2br }}</h1>
+        <div class="hero-bottom">
+          <p><br>{{ accueil.hero.tagline }}<span class="hero-sub">{{ accueil.hero.subtitle }}</span></p>
+          <div class="actions">
+            <a class="btn btn-accent" href="#realisations">{{ accueil.hero.button_work }}</a>
+            <a class="btn btn-ghost" href="#contact">{{ accueil.hero.button_project }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-meta"><span>{{ accueil.hero.meta_left }}</span><span>{{ accueil.hero.meta_right }}</span></div>
+    </section>
+
+    <section class="intro section">
+      <p class="section-kicker">{{ accueil.intro.kicker }}</p>
+      <h2>{{ accueil.intro.title }}</h2>
+      <p>{{ accueil.intro.text }}</p>
+    </section>
+
+    <section class="showcase" aria-labelledby="showcase-title">
+      <h2 class="showcase-title" id="showcase-title">{{ accueil.carousel_title }}</h2>
+      <div class="showcase-viewport" data-showcase>
+        <ul class="showcase-track" data-showcase-track>
+{%- for photo in carrousel %}
+          <li><img src="{{ photo.src }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" loading="lazy" decoding="async" draggable="false"></li>
+{%- endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <section class="realisations section section-dark" id="realisations">
+      <div class="section-title-row">
+        <div>
+          <p class="section-kicker">{{ accueil.realisations.kicker }}</p>
+          <h2>{{ accueil.realisations.title|nl2br }}</h2>
+        </div>
+      </div>
+
+      <div class="project-rail-wrap" data-rail-wrap>
+        <div class="rail-controls" aria-label="Navigation des réalisations">
+          <button type="button" data-rail-prev aria-label="Réalisation précédente">←</button>
+          <button type="button" data-rail-next aria-label="Réalisation suivante">→</button>
+        </div>
+
+        <div class="project-rail" data-project-rail>
+{%- for card in realisations %}
+
+          <a class="project-card" href="match-page/{{ card.slug }}.html"{% if card.category %} data-category="{{ card.category }}"{% endif %}{% if card.competition %} data-competition="{{ card.competition }}"{% endif %}{% if card.client %} data-client="{{ card.client }}"{% endif %}>
+            <img src="{{ card.thumb }}" alt="{{ card.alt }}" loading="lazy">
+            <div>
+              <p>{{ card.label }}</p>
+              <h3>{{ card.title|nl2br }}</h3>
+              <span>{{ card.meta }}</span>
+            </div>
+          </a>
+{%- endfor %}
+
+        </div>
+      </div>
+    </section>
+
+    <section class="services section section-light" id="prestations">
+      <div class="services-layout">
+        <div class="services-intro">
+          <p class="section-kicker">{{ prestations.kicker }}</p>
+          <h2>{{ prestations.title|nl2br }}</h2>
+
+          <p class="section-note">
+            {{ prestations.note }}
+          </p>
+
+          <a class="btn btn-dark services-btn" href="#contact">
+            {{ prestations.button }}
+          </a>
+        </div>
+
+        <div class="services-list">
+{%- for item in prestations['items'] %}
+
+          <article class="service-item">
+            <span class="service-number">{{ '%02d'|format(loop.index) }}</span>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+              <b>{{ item.audience }}</b>
+            </div>
+          </article>
+{%- endfor %}
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about section section-dark" id="apropos">
+      <div class="about-media"><img src="{{ accueil.about.image_small }}" srcset="{{ accueil.about.image_small }} 900w, {{ accueil.about.image }} 1650w" sizes="(max-width: 900px) calc(100vw - 36px), 42vw" width="1650" height="2200" alt="{{ accueil.about.image_alt }}" loading="lazy" decoding="async"></div>
+      <div class="about-copy">
+        <p class="section-kicker">{{ accueil.about.kicker }}</p>
+        <h2>{{ accueil.about.title|nl2br }}</h2>
+{%- for paragraph in accueil.about.paragraphs %}
+        <p>{{ paragraph }}</p>
+{%- endfor %}
+        <dl>{% for fact in accueil.about.facts %}<div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>{% endfor %}</dl>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="contact-copy">
+        <p class="section-kicker">{{ accueil.contact.kicker }}</p>
+        <h2>{{ accueil.contact.title|nl2br }}</h2>
+        <p>{{ accueil.contact.text }}</p>
+        <a href="{{ site.instagram_url }}" target="_blank" rel="noreferrer">{{ site.instagram_handle }} ↗</a>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </div>
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
+        <input type="hidden" name="form-name" value="contact"><p class="honeypot"><label>Ne pas remplir <input name="bot-field"></label></p>
+        <label>Nom<input name="name" type="text" autocomplete="name" required></label>
+        <label>Club / structure<input name="structure" type="text" autocomplete="organization"></label>
+        <label>Email / Instagram<input name="contact" type="text" required></label>
+        <label>Type de projet<select name="project-type" required><option value="" selected disabled>Choisir</option>{% for kind in accueil.contact.project_types %}<option>{{ kind }}</option>{% endfor %}</select></label>
+        <label class="full">Message<textarea name="message" rows="5" required placeholder="{{ accueil.contact.message_placeholder }}"></textarea></label>
+        <button class="btn btn-accent full" type="submit">{{ accueil.contact.submit }}</button>
+        <p class="form-privacy full">{{ accueil.contact.privacy }}</p>
+      </form>
+    </section>
+
+    <section class="faq section section-dark" id="faq" aria-labelledby="faq-title">
+      <div class="faq-head">
+        <p class="section-kicker">{{ accueil.faq.kicker }}</p>
+        <h2 id="faq-title">{{ accueil.faq.title }}</h2>
+      </div>
+      <div class="faq-list">
+{%- for entry in faq %}
+        <details class="faq-item">
+          <summary><h3>{{ entry.question }}</h3></summary>
+          <p>{{ entry.answer }}</p>
+        </details>
+{%- endfor %}
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/brand/nlt-visual-logo-light.png" alt="NLT.Visual" width="166" height="118">
+    <p>{{ site.footer_text }}</p>
+    <a href="{{ site.instagram_url }}" target="_blank" rel="noreferrer">Instagram ↗</a>
+    <span>© <span data-year></span> NLT.Visual</span>
+  </footer>
+
+  <a class="mobile-contact is-hidden" href="#contact">Contact ↗</a>
+
+  <script src="assets/js/home-v2.js" defer></script>
+</body>
+</html>

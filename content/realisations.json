@@ -1,0 +1,15 @@
+{
+  "items": [
+    { "slug": "cysoing-verlinghem", "thumb": "assets/images/thumbs/matchday/cysoing-verlinghem.webp", "alt": "Cysoing - Verlinghem", "label": "Client · Joueurs Verlinghem", "title": "Cysoing\n- Verlinghem", "meta": "Coupe Gambardella · Voir le match ↗", "category": "match", "competition": "coupe-gambardella", "client": "joueurs-verlinghem" },
+    { "slug": "rc-calais-kv-courtrai", "thumb": "assets/images/thumbs/matchday/RCcalais.KVCourtrai.webp", "alt": "RC Calais - KV Courtrai", "label": "Photo sportive", "title": "RC Calais\n- KV Courtrai", "meta": "Amical · Voir le match ↗" },
+    { "slug": "usl-dunkerque-2-omf", "thumb": "assets/images/thumbs/matchday/USLD.OMF.webp", "alt": "USL Dunkerque 2 - OMF", "label": "Client · OMF", "title": "USL Dunkerque 2\n- OMF", "meta": "Championnat R1 · Voir le match ↗" },
+    { "slug": "us-pays-de-cassel-sfc-neuilly-sur-marne", "thumb": "assets/images/thumbs/matchday/Cassel.webp", "alt": "US Pays de Cassel - SFC Neuilly-sur-Marne", "label": "Photo sportive", "title": "US Pays de Cassel\n- SFC Neuilly", "meta": "National 3 · Voir le match ↗" },
+    { "slug": "as-steenvoorde-omf", "thumb": "assets/images/thumbs/matchday/steenvoorde.webp", "alt": "Aperçu AS Steenvoorde - OMF", "label": "Client · OMF", "title": "AS Steenvoorde\n- OMF", "meta": "Championnat R1 · Match du titre ↗" },
+    { "slug": "usl-dunkerque-ja-drancy", "thumb": "assets/images/thumbs/matchday/USLD.Drancy.webp", "alt": "USL Dunkerque - JA Drancy", "label": "Photo sportive", "title": "USL Dunkerque\n- JA Drancy", "meta": "U17 National · Voir le match ↗" },
+    { "slug": "omf-longueau-esc", "thumb": "assets/images/thumbs/matchday/OMF.Longueau.webp", "alt": "OMF - Longueau ESC", "label": "Client · OMF", "title": "OMF\n- Longueau ESC", "meta": "Championnat R1 · Voir le match ↗" },
+    { "slug": "ferran-fan-96-3-as-marcq", "thumb": "assets/images/thumbs/matchday/ASmarcq.webp", "alt": "Ferran Fan 96 3 - AS Marcq", "label": "Client · AS Marcq", "title": "Ferran Fan 96 3\n- AS Marcq", "meta": "Championnat D6 · Voir le match ↗" },
+    { "slug": "omf-stade-bethunois", "thumb": "assets/images/thumbs/matchday/OMF.SBethune.webp", "alt": "OMF - Stade Béthunois", "label": "Photo sportive", "title": "OMF\n- Stade Béthunois", "meta": "Championnat R1 · Voir le match ↗" },
+    { "slug": "us-quiestede-fc-wavrans", "thumb": "assets/images/thumbs/matchday/USQ.Wavrans.webp", "alt": "US Quiestède - FC Wavrans", "label": "Client · US Quiestède", "title": "US Quiestède\n- FC Wavrans", "meta": "Championnat D2 · Voir le match ↗" },
+    { "slug": "omf-us-vimy", "thumb": "assets/images/thumbs/matchday/OMF.Vimy.webp", "alt": "OMF - US Vimy", "label": "Client · OMF", "title": "OMF\n- US Vimy", "meta": "Match amical · Voir le match ↗" }
+  ]
+}
