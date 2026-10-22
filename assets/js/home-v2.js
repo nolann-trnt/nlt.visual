@@ -149,11 +149,18 @@
     serviceItems.forEach(item => serviceObserver.observe(item));
   }
 
-  const contact = $('#contact');
   const mobileContact = $('.mobile-contact');
-  if (contact && mobileContact && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([entry]) => {
-      mobileContact.classList.toggle('is-hidden', entry.isIntersecting);
-    }, {threshold:.08}).observe(contact);
+  if (mobileContact && 'IntersectionObserver' in window) {
+    const watched = [[$('.hero'), .3], [$('#contact'), .08], [$('#faq'), .08]];
+    const seen = new Set();
+    watched.forEach(([el, threshold]) => {
+      if (!el) return;
+      new IntersectionObserver(([entry]) => {
+        if (entry.intersectionRatio >= threshold) seen.add(el); else seen.delete(el);
+        mobileContact.classList.toggle('is-hidden', seen.size > 0);
+      }, {threshold:[0, threshold]}).observe(el);
+    });
+  } else if (mobileContact) {
+    mobileContact.classList.remove('is-hidden');
   }
 })();
