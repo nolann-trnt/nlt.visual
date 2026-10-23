@@ -79,6 +79,7 @@ def main():
 
     for key in ('image', 'image_small'):
         accueil['about'][key] = clean_path(accueil['about'][key])
+    accueil['about']['width'], accueil['about']['height'] = image_size(accueil['about']['image'])
     site['share_image'] = clean_path(site['share_image'])
 
     business_schema = {

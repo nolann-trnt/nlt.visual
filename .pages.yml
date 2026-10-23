@@ -20,19 +20,13 @@ content:
         label: Haut de page
         type: object
         fields:
-          - { name: eyebrow, label: Petite ligne au-dessus du titre, type: string }
-          - { name: title, label: Grand titre (Entrée = retour à la ligne), type: text }
-          - { name: tagline, label: Phrase d'accroche, type: string }
-          - { name: subtitle, label: Sous-titre, type: text }
-          - { name: button_work, label: Bouton 1, type: string }
-          - { name: button_project, label: Bouton 2, type: string }
-          - { name: meta_left, label: Mention en haut à droite (gauche), type: string }
-          - { name: meta_right, label: Mention en haut à droite (droite), type: string }
+          - { name: title, label: Nom en grand (une seule ligne), type: string }
+          - { name: tagline, label: Phrase d'accroche (en haut de la photo), type: text }
+          - { name: button_work, label: Texte du lien sous la phrase d'accroche, type: string }
       - name: intro
         label: Introduction
         type: object
         fields:
-          - { name: kicker, label: Petit titre, type: string }
           - { name: title, label: Titre, type: string }
           - { name: text, label: Texte, type: text }
       - { name: carousel_title, label: Titre au-dessus du carrousel (important pour Google), type: string }
@@ -40,13 +34,11 @@ content:
         label: Section Réalisations
         type: object
         fields:
-          - { name: kicker, label: Petit titre, type: string }
           - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
       - name: about
         label: À propos
         type: object
         fields:
-          - { name: kicker, label: Petit titre, type: string }
           - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
           - { name: image, label: Photo (grande), type: image, options: { media: images } }
           - { name: image_small, label: Photo (version mobile), type: image, options: { media: images } }
@@ -63,7 +55,6 @@ content:
         label: Contact
         type: object
         fields:
-          - { name: kicker, label: Petit titre, type: string }
           - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
           - { name: text, label: Texte, type: text }
           - { name: project_types, label: Choix de "Type de projet" du formulaire, type: string, list: true }
@@ -74,7 +65,6 @@ content:
         label: Titre de la FAQ
         type: object
         fields:
-          - { name: kicker, label: Petit titre, type: string }
           - { name: title, label: Titre, type: string }
 
   - name: faq
@@ -98,7 +88,6 @@ content:
     type: file
     path: content/prestations.json
     fields:
-      - { name: kicker, label: Petit titre, type: string }
       - { name: title, label: Titre (Entrée = retour à la ligne), type: text }
       - { name: note, label: Texte d'introduction, type: text }
       - { name: button, label: Texte du bouton, type: string }

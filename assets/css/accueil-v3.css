@@ -1,0 +1,171 @@
+/* Accueil v3 : se charge après home-v2.css et en surcharge certains styles. */
+
+/* 1. Même base de couleurs (noir, blanc cassé, gris clair), mais le vert fluo laisse place à un blanc chaud */
+:root {
+  --accent:#f2efe8;
+  --sans:"Bricolage Grotesque",Arial,sans-serif;
+  --cond:"Bricolage Grotesque",Arial,sans-serif
+}
+.btn-accent { color:#080a09 }
+.btn-accent:hover { background:#ffffff; border-color:#ffffff }
+.faq-item summary::after { color:var(--accent) }
+
+/* 2. Plus aucune majuscule criarde, ni espacement artificiel */
+*, *::before, *::after { text-transform:none !important }
+.eyebrow, .section-kicker, .hero-meta, .header-cta, .btn, .nav a,
+.project-card p, .project-card span, .service-item b,
+.contact-form label, .mobile-contact, .footer, .about dt, .rail-controls button, .showcase-title {
+  letter-spacing:.01em !important
+}
+
+/* 3. Petits titres de section : discrets, en casse normale */
+.section-kicker { font-size:16px; opacity:.72; font-weight:500 }
+.eyebrow { font-size:16px; font-weight:500; opacity:.85 }
+.showcase-title { font-size:16px; font-weight:500; opacity:.72 }
+
+/* 4. Titre d'accueil en minuscules : plus humain, plus à toi */
+.hero h1 { text-transform:lowercase !important; font-weight:600; letter-spacing:-.065em; line-height:.8 }
+h2 { font-weight:500 }
+
+/* 5. Plus de numéros sur les prestations */
+.service-number { display:none }
+.service-item { grid-template-columns:1fr !important }
+.service-item b { font-size:14px; font-weight:500; color:#6a6256 }
+.service-item h3 { font-weight:500 }
+
+/* 6. Photos en léger décalage comme sur une planche contact (contours inchangés) */
+.showcase-track { align-items:flex-start }
+.showcase-track li:nth-child(even) { margin-top:52px }
+.project-card p, .project-card span { font-size:14px }
+.project-card h3 { font-weight:500; letter-spacing:-.03em }
+
+/* ===== Accueil : on casse les placements qui ressemblent aux autres sites ===== */
+
+/* En-tête : logo à gauche, menu groupé à droite, "Contact" comme un simple lien (plus de bouton) */
+.header { gap:36px }
+.nav { margin-left:auto }
+.header-cta { border:1px solid rgba(255,255,255,.85) !important; background:rgba(255,255,255,.08) !important; padding:11px 22px !important; border-radius:8px !important; font-weight:500; transition:background .25s, color .25s }
+.header-cta:hover { background:#f2efe8 !important; color:#080a09 !important }
+.header-cta span { display:none }
+.hero-meta { display:none }
+
+/* Nouveau haut de page : photo plein cadre, phrase en haut à gauche, texte en haut à droite, nom en une seule ligne tout en bas */
+.hero-d { position:relative; min-height:100svh; color:#fff; overflow:hidden; background:#050605 }
+.hero-d .hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 35% }
+.hero-d .hero-shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.05) 38%,rgba(0,0,0,.78)) }
+.hero-d .hero-line { position:absolute; z-index:2; left:5vw; top:clamp(120px,15vh,170px); margin:0; max-width:19ch; font-size:clamp(26px,2.6vw,40px); line-height:1.12; letter-spacing:-.025em; font-weight:500 }
+.hero-d .hero-side { position:absolute; z-index:2; right:5vw; top:clamp(120px,15vh,170px); width:min(34ch,30vw); text-align:left }
+.hero-d .hero-side p { margin:0 0 22px; font-size:16px; line-height:1.55; opacity:.95 }
+.hero-d .hero-line, .hero-d .hero-side { text-shadow:0 1px 18px rgba(0,0,0,.6) }
+.hero-d .hero-links { display:flex; flex-direction:column; gap:8px }
+.hero-d .hero-links a { width:max-content; font-weight:500; border-bottom:1px solid rgba(255,255,255,.6); padding-bottom:3px }
+.hero-d .hero-links a:hover { border-color:#fff }
+.hero-d h1 { position:absolute; z-index:2; left:3.2vw; right:3vw; bottom:2.2vw; margin:0; max-width:none; font-size:26.1vw; font-weight:600; line-height:.72; letter-spacing:-.022em; white-space:nowrap; text-transform:lowercase !important }
+
+/* Titres de section : moins massifs, sans le petit titre devant */
+.section-title-row h2, .services-intro h2, .about h2, .contact h2, .faq-head h2 {
+  font-size:clamp(40px,5vw,76px) !important; line-height:.98 !important; letter-spacing:-.045em !important
+}
+.section-kicker { display:none }
+
+/* Introduction : sans le petit titre, le texte reprend toute sa place */
+.intro { grid-template-columns:3fr 1.15fr !important }
+.intro h2 { max-width:16ch }
+
+/* ===== Mobile : on empile, rien ne passe sur le joueur ===== */
+@media (max-width:900px) {
+  .hero-d .hero-bg { object-position:38% 30% }
+  .hero-d .hero-shade { background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.06) 30%,rgba(0,0,0,.45) 62%,rgba(0,0,0,.88)) }
+  .hero-d .hero-line { left:5vw; right:5vw; top:104px; max-width:none; font-size:clamp(24px,7vw,32px) }
+  .hero-d .hero-side { left:5vw; right:5vw; top:auto; bottom:calc(2.2vw + 24vw); width:auto }
+  .hero-d .hero-side p { font-size:15px; margin-bottom:14px; max-width:36ch }
+  .hero-d .hero-links { flex-direction:row; gap:22px; flex-wrap:wrap }
+  .hero-d h1 { left:3vw; right:3vw; bottom:3vw; font-size:26.4vw }
+  .section-title-row h2, .services-intro h2, .about h2, .contact h2, .faq-head h2 { font-size:clamp(38px,11vw,56px) !important }
+  .intro { grid-template-columns:1fr !important; gap:24px !important }
+  .intro h2 { max-width:none }
+}
+
+/* ===== Entrée allégée : phrase d'accroche, un lien, le nom. Le reste est déjà dans l'introduction. ===== */
+.hero-d .hero-side p { display:none }
+.hero-d .hero-links a:nth-child(2) { display:none }
+.hero-d .hero-side { width:auto }
+
+/* ===== Lien d'entrée : en bas à gauche, au-dessus du nom (plus rien sur le maillot) ===== */
+.hero-d .hero-side { left:5vw; right:auto; top:auto; bottom:calc(2.2vw + 24vw); width:auto }
+
+/* ===== Animations (désactivées si le visiteur a demandé moins de mouvement) ===== */
+@keyframes rise   { from { transform:translateY(145%) } to { transform:translateY(0) } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
+@keyframes zoomOut { from { transform:scale(1.18) } to { transform:scale(1) } }
+
+/* Arrivée : la photo se pose, le nom monte lettre par lettre, puis la phrase et le lien apparaissent */
+.hero-d .hero-bg { translate:0 var(--py,0px) }
+.js .hero-d .hero-bg { transform:scale(1.18) }
+.js.hero-play .hero-d .hero-bg { animation:zoomOut 3s cubic-bezier(.16,.8,.2,1) both }
+.js .hero-d h1 .ch { display:inline-block; line-height:inherit; vertical-align:top; padding:.3em 0 .24em; margin:-.3em 0 -.24em; clip-path:inset(-.3em -.6em 0 -.6em) }
+.js .hero-d h1 .in { display:inline-block; transform:translateY(145%) }
+.js.hero-play .hero-d h1 .in { animation:rise 1.05s cubic-bezier(.2,.85,.2,1) both; animation-delay:calc(.35s + var(--i) * 75ms) }
+.js .header { opacity:0 }
+.js.hero-play .header { animation:fadeUp .9s .2s both }
+.js .hero-d .hero-line { opacity:0 }
+.js.hero-play .hero-d .hero-line { animation:fadeUp 1s 1.15s both }
+.js .hero-d .hero-side { opacity:0 }
+.js.hero-play .hero-d .hero-side { animation:fadeUp .9s 1.6s both }
+
+/* Plus bas : les blocs apparaissent quand on arrive dessus */
+.js .rv-up { opacity:0; transform:translateY(38px); transition:opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); transition-delay:var(--d,0ms) }
+.js .rv-up.seen { opacity:1; transform:none }
+.js .rv-card { opacity:0; transform:translateY(46px) scale(.97); transition:opacity .8s ease, transform .9s cubic-bezier(.2,.8,.2,1); transition-delay:var(--d,0ms) }
+.js .rv-card.seen { opacity:1; transform:none }
+.js .rv-wipe img { clip-path:inset(100% 0 0 0); transform:scale(1.22); transition:clip-path 1.3s cubic-bezier(.7,0,.2,1), transform 1.8s cubic-bezier(.2,.8,.2,1) }
+.js .rv-wipe.seen img { clip-path:inset(0 0 0 0); transform:scale(1) }
+
+/* Le nom reste en minuscules, lettre par lettre aussi */
+.hero-d h1, .hero-d h1 * { text-transform:lowercase !important }
+
+
+/* ===== Mobile : le pseudo en très grand, au milieu de l'écran, sur deux lignes ===== */
+.hero-d h1 .mbr { display:none }
+@media (max-width:900px) {
+  .hero-d h1 { top:50%; bottom:auto; left:0; right:0; transform:translateY(-50%); text-align:center; font-size:39vw; line-height:.82; letter-spacing:-.025em; white-space:normal; text-shadow:0 2px 40px rgba(0,0,0,.35) }
+  .hero-d h1 .mbr { display:block }
+  .hero-d .hero-side { left:0; right:0; bottom:7vh; text-align:center }
+  .hero-d .hero-links { justify-content:center }
+}
+
+
+/* ===== Mobile et tablette : arrivée pensée pour l'écran, qui suit la hauteur et l'orientation ===== */
+@keyframes scrollCue { 0% { transform:scaleY(0); opacity:0 } 30% { opacity:1 } 100% { transform:scaleY(1); opacity:0 } }
+@media (max-width:900px) {
+  .hero-d { min-height:100vh; min-height:100svh }
+  .hero-d .hero-bg { object-position:40% 22% }
+  .hero-d .hero-shade { background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.1) 28%,rgba(0,0,0,.22) 55%,rgba(0,0,0,.84)) }
+  .hero-d .hero-line { top:max(96px, calc(env(safe-area-inset-top) + 84px)); left:max(20px,5vw); right:max(20px,5vw); max-width:19ch; font-size:clamp(22px,6.6vw,34px); line-height:1.14 }
+  .hero-d h1 { top:52%; font-size:min(39vw, 30svh) }
+  .hero-d .hero-side { bottom:calc(env(safe-area-inset-bottom) + 9svh) }
+  .hero-d::after { content:""; position:absolute; z-index:2; left:50%; bottom:calc(env(safe-area-inset-bottom) + 2.2svh); width:1px; height:5svh; background:linear-gradient(#fff, rgba(255,255,255,0)); transform-origin:top; animation:scrollCue 2.2s ease-in-out 2.4s infinite }
+}
+@media (max-width:360px) {
+  .hero-d .hero-line { font-size:21px }
+}
+/* Téléphone en paysage : le pseudo sur une seule ligne, en bas */
+@media (max-width:900px) and (orientation:landscape) and (max-height:520px) {
+  .hero-d h1 { top:auto; bottom:3svh; transform:none; font-size:min(26vw,50svh); white-space:nowrap }
+  .hero-d h1 .mbr { display:none }
+  .hero-d .hero-line { top:68px; font-size:20px; max-width:24ch }
+  .hero-d .hero-side { top:68px; bottom:auto; left:auto; right:5vw; width:auto; text-align:right }
+  .hero-d::after { display:none }
+}
+
+
+/* ===== Logo blanc sous le pseudo (mobile et tablette) ===== */
+.hero-d .hero-logo { display:none }
+@media (max-width:900px) {
+  .hero-d .hero-logo { display:block; position:absolute; z-index:2; left:0; right:0; margin:0 auto; width:clamp(64px,18vw,104px); height:auto; top:calc(52% + min(39vw,30svh) * .82 + 10px); opacity:.95 }
+  .js .hero-d .hero-logo { opacity:0 }
+  .js.hero-play .hero-d .hero-logo { animation:fadeUp .9s 1.9s both }
+}
+@media (max-width:900px) and (orientation:landscape) and (max-height:520px) {
+  .hero-d .hero-logo { display:none }
+}

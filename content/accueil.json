@@ -1,50 +1,54 @@
 {
   "hero": {
-    "eyebrow": "Photographe sportif - Hauts-de-France",
-    "title": "NLT.\nVISUAL",
+    "title": "NLT.Visual",
     "tagline": "Des images faites pour vivre après le coup de sifflet.",
-    "subtitle": "Photographe sport & street dans les Hauts-de-France. Le football au plus près du jeu, pour les clubs, les joueurs, les créateurs et les marques.",
-    "button_work": "Voir le travail",
-    "button_project": "Parler d’un projet",
-    "meta_left": "Nord-Pas-de-Calais",
-    "meta_right": "Match / Portrait / Club content"
+    "button_work": "Voir le travail ↓"
   },
   "intro": {
-    "kicker": "NLT.Visual",
     "title": "\"Je photographie le football au plus près du jeu\"",
     "text": "Découvre mon travail dans ce portfolio de réalisations, séries et projets. Chaque match, chaque joueur et chaque club a son contexte."
   },
   "carousel_title": "Photographe de football",
   "realisations": {
-    "kicker": "Réalisations",
     "title": "Les matchs\net projets."
   },
   "about": {
-    "kicker": "À propos",
-    "title": "Nolann.\nDerrière NLT.Visual.",
-    "image": "assets/images/about/nolann-about.webp",
-    "image_small": "assets/images/about/nolann-about-900.webp",
-    "image_alt": "Nolann, photographe NLT.Visual",
+    "title": "Moi, c’est\nNolann.",
+    "image": "assets/images/about/nolann-photographe.webp",
+    "image_small": "assets/images/about/nolann-photographe-900.webp",
+    "image_alt": "Nolann, photographe NLT.Visual, appareil photo en main sur un terrain de football",
     "paragraphs": [
       "Photographe sport & street, basé dans les Hauts-de-France, je photographie le football au plus près du jeu : l’intensité, les duels, les émotions que le score ne montre pas. Sur un match, je cherche autant l’action que ce qui l’entoure : les regards avant d’entrer, les détails, le banc, le public, le moment juste après.",
       "Je travaille avec des clubs, des joueurs, des créateurs et des marques. Je livre une sélection courte et cohérente, que chacun peut utiliser tout de suite, plutôt qu’une pile de fichiers à trier."
     ],
     "facts": [
-      { "label": "Basé", "value": "Hauts-de-France" },
-      { "label": "Focus", "value": "Football / Sport / Street" }
+      {
+        "label": "Basé",
+        "value": "Hauts-de-France"
+      },
+      {
+        "label": "Focus",
+        "value": "Football / Sport / Street"
+      }
     ]
   },
   "contact": {
-    "kicker": "Contact",
     "title": "Un match,\nun joueur,\nun projet ?",
     "text": "Envoie-moi le contexte, la date et l’usage prévu des images. On voit rapidement ce qu’il faut produire.",
-    "project_types": ["Couverture de match", "Shooting joueur", "Shooting gardien", "Contenu club", "Media day", "Contenu marque", "Autre"],
+    "project_types": [
+      "Couverture de match",
+      "Shooting joueur",
+      "Shooting gardien",
+      "Contenu club",
+      "Media day",
+      "Contenu marque",
+      "Autre"
+    ],
     "message_placeholder": "Date, lieu, besoin, usage des images…",
     "submit": "Parlons du projet ↗",
     "privacy": "Les informations envoyées servent uniquement à répondre à votre demande. Vous pouvez demander leur suppression à tout moment par email."
   },
   "faq": {
-    "kicker": "FAQ",
     "title": "Questions fréquentes"
   }
 }
