@@ -12,7 +12,7 @@
             <a href="../index.html#prestations">Prestations</a>
             <a href="../index.html#apropos">À propos</a>
           </nav>
-          <a class="match-contact" href="../index.html#contact">Me contacter ↗</a>
+          <a class="match-contact" href="../index.html#contact">Contact</a>
         </header>`;
     }
 
@@ -21,7 +21,7 @@
       footerMount.outerHTML = `
         <footer class="match-footer">
           <span>NLT.Visual</span>
-          <span>Photographe sportif · Hauts-de-France</span>
+          <span>Photographe football, sport &amp; street · Hauts-de-France</span>
           <a href="https://www.instagram.com/nlt.visual/" target="_blank" rel="noreferrer">@nlt.visual ↗</a>
         </footer>`;
     }
