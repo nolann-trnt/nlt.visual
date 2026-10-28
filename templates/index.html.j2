@@ -23,9 +23,10 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/images/hero/hero-main-1280.webp" imagesrcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main.webp 3712w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/home-v2.css">
+  <link rel="stylesheet" href="assets/css/accueil-v3.css">
   <script type="application/ld+json">
   {{ business_schema|tojson }}
   </script>
@@ -60,25 +61,18 @@
   </div>
 
   <main id="main">
-    <section class="hero" id="top">
+    <section class="hero hero-d" id="top">
       <img class="hero-bg" src="assets/images/hero/hero-main-1280.webp" srcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main.webp 3712w" sizes="100vw" width="3712" height="5568" alt="" fetchpriority="high" decoding="async">
       <div class="hero-shade"></div>
-      <div class="hero-content">
-        <p class="eyebrow">{{ accueil.hero.eyebrow }}</p>
-        <h1>{{ accueil.hero.title|nl2br }}</h1>
-        <div class="hero-bottom">
-          <p><br>{{ accueil.hero.tagline }}<span class="hero-sub">{{ accueil.hero.subtitle }}</span></p>
-          <div class="actions">
-            <a class="btn btn-accent" href="#realisations">{{ accueil.hero.button_work }}</a>
-            <a class="btn btn-ghost" href="#contact">{{ accueil.hero.button_project }}</a>
-          </div>
-        </div>
+      <p class="hero-line">{{ accueil.hero.tagline }}</p>
+      <div class="hero-side">
+        <div class="hero-links"><a href="#realisations">{{ accueil.hero.button_work }}</a></div>
       </div>
-      <div class="hero-meta"><span>{{ accueil.hero.meta_left }}</span><span>{{ accueil.hero.meta_right }}</span></div>
+      <h1>{{ accueil.hero.title }}</h1>
+      <img class="hero-logo" src="assets/brand/nlt-visual-logo-light.png" alt="" width="166" height="118">
     </section>
 
     <section class="intro section">
-      <p class="section-kicker">{{ accueil.intro.kicker }}</p>
       <h2>{{ accueil.intro.title }}</h2>
       <p>{{ accueil.intro.text }}</p>
     </section>
@@ -97,7 +91,6 @@
     <section class="realisations section section-dark" id="realisations">
       <div class="section-title-row">
         <div>
-          <p class="section-kicker">{{ accueil.realisations.kicker }}</p>
           <h2>{{ accueil.realisations.title|nl2br }}</h2>
         </div>
       </div>
@@ -128,7 +121,6 @@
     <section class="services section section-light" id="prestations">
       <div class="services-layout">
         <div class="services-intro">
-          <p class="section-kicker">{{ prestations.kicker }}</p>
           <h2>{{ prestations.title|nl2br }}</h2>
 
           <p class="section-note">
@@ -158,9 +150,8 @@
     </section>
 
     <section class="about section section-dark" id="apropos">
-      <div class="about-media"><img src="{{ accueil.about.image_small }}" srcset="{{ accueil.about.image_small }} 900w, {{ accueil.about.image }} 1650w" sizes="(max-width: 900px) calc(100vw - 36px), 42vw" width="1650" height="2200" alt="{{ accueil.about.image_alt }}" loading="lazy" decoding="async"></div>
+      <div class="about-media"><img src="{{ accueil.about.image_small }}" srcset="{{ accueil.about.image_small }} 900w, {{ accueil.about.image }} 1650w" sizes="(max-width: 900px) calc(100vw - 36px), 42vw" width="{{ accueil.about.width }}" height="{{ accueil.about.height }}" alt="{{ accueil.about.image_alt }}" loading="lazy" decoding="async"></div>
       <div class="about-copy">
-        <p class="section-kicker">{{ accueil.about.kicker }}</p>
         <h2>{{ accueil.about.title|nl2br }}</h2>
 {%- for paragraph in accueil.about.paragraphs %}
         <p>{{ paragraph }}</p>
@@ -171,7 +162,6 @@
 
     <section class="contact section" id="contact">
       <div class="contact-copy">
-        <p class="section-kicker">{{ accueil.contact.kicker }}</p>
         <h2>{{ accueil.contact.title|nl2br }}</h2>
         <p>{{ accueil.contact.text }}</p>
         <a href="{{ site.instagram_url }}" target="_blank" rel="noreferrer">{{ site.instagram_handle }} ↗</a>
@@ -191,7 +181,6 @@
 
     <section class="faq section section-dark" id="faq" aria-labelledby="faq-title">
       <div class="faq-head">
-        <p class="section-kicker">{{ accueil.faq.kicker }}</p>
         <h2 id="faq-title">{{ accueil.faq.title }}</h2>
       </div>
       <div class="faq-list">
@@ -215,5 +204,6 @@
   <a class="mobile-contact is-hidden" href="#contact">Contact ↗</a>
 
   <script src="assets/js/home-v2.js" defer></script>
+  <script src="assets/js/accueil-anim.js" defer></script>
 </body>
 </html>

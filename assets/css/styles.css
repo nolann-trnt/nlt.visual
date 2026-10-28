@@ -2550,3 +2550,15 @@ body[data-demo="true"] .prototype-badge {
     transform: none;
   }
 }
+
+/* Pages 404 et merci : même police, même accent et mêmes formes que le reste du site */
+:root {
+  --signal: #f1f0e9;
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-condensed: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.thanks-page .section-index { font-size: 1rem; font-weight: 500; letter-spacing: .01em; text-transform: none; }
+.thanks-page .section-index::before { display: none; }
+.thanks-card { border-radius: 16px; }
+.thanks-card h1 { text-transform: none; letter-spacing: -.04em; line-height: .9; }
+.thanks-page .button { border-radius: 8px; font-size: 1rem; font-weight: 500; letter-spacing: .01em; text-transform: none; }

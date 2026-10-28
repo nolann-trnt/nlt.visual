@@ -20,7 +20,10 @@ Site statique fabriqué par un petit script Python (`build.py`) à partir de fic
 | Photos du carrousel | `content/carrousel.json` |
 | Cartes de la section Réalisations | `content/realisations.json` |
 | Structure HTML de l'accueil | `templates/index.html.j2` |
-| Style / comportement | `assets/css/`, `assets/js/` |
+| Style de l'accueil (se charge après `home-v2.css`) | `assets/css/accueil-v3.css` |
+| Animations de l'accueil (arrivée, apparitions au défilement) | `assets/js/accueil-anim.js` |
+| Pages de match : style, en-tête et pied de page | `assets/css/match-page.css`, `assets/js/match-page-shared.js` |
+| Autre style / comportement | `assets/css/`, `assets/js/` |
 
 Ne jamais éditer `_site/` (généré, ignoré par Git). Il n'y a plus de `index.html` ni de `llms.txt` à la racine : ils sont fabriqués par `build.py` (`llms.txt` se met à jour tout seul avec les réalisations et la FAQ).
 
