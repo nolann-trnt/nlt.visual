@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "slug": "omf-us-camon",
+      "thumb": "assets/images/thumbs/matchday/omf-us-camon.webp",
+      "alt": "OMF - US Camon",
+      "label": "Client · OMF",
+      "title": "OMF\n- US Camon",
+      "meta": "Championnat R1 · Voir le match ↗",
+      "category": "match",
+      "client": "omf"
+    },
+    {
       "slug": "cs-habarcq-valenciennes",
       "thumb": "assets/images/thumbs/matchday/cs-habarcq-valenciennes.webp",
       "alt": "CS Habarcq - Valenciennes",
