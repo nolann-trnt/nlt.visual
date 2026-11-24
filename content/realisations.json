@@ -1,6 +1,15 @@
 {
   "items": [
     {
+      "slug": "us-boulogne-us-gravelines",
+      "thumb": "assets/images/thumbs/matchday/us-boulogne-us-gravelines.webp",
+      "alt": "US Boulogne - US Gravelines",
+      "label": "Photo sportive",
+      "title": "US Boulogne\n- US Gravelines",
+      "meta": "Match · Voir le match ↗",
+      "category": "match"
+    },
+    {
       "slug": "omf-us-camon",
       "thumb": "assets/images/thumbs/matchday/omf-us-camon.webp",
       "alt": "OMF - US Camon",
